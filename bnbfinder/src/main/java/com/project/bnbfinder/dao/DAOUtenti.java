@@ -1,5 +1,5 @@
 package com.project.bnbfinder.dao;
 
-public class DaoUtenti {
+public class DAOUtenti {
 
 }
