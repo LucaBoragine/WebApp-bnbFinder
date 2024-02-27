@@ -1,6 +1,17 @@
 package com.project.bnbfinder;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import database.Database;
+
+@Configuration
 public class Context 
 {
-//ciao//sono antonella vi vi bi <3
+	@Bean
+	public Database db() {
+		return new Database("");
+		
+	}
+
 }
