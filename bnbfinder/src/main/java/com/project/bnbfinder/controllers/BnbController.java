@@ -44,7 +44,7 @@ public class BnbController {
 	@GetMapping("nuovobnb")
 	public String nuovobnb(@RequestParam Map<String,String> inputform)
 	{
-		if(ds.crea(inputform))
+		if(ds.create(inputform))
 		{
 			System.out.println("BNB inserito con successo");
 			return "redirect:elencobnb";

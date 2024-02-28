@@ -41,5 +41,23 @@ public class DAOStrutture {
 
         return db.rows(query, locationScelta);
     }
+    
+    public boolean create(Map<String,String> m)
+    {
+        String query = "insert into strutture (nome, citta, indirizzo, location, link_Img, descrizione, prezzo_notte) values (?,?,?,?,?,?,?)";
+        return db.update(query, m.get("nome"), m.get("citta"), m.get("indirizzo"), m.get("location"), m.get("link_Img"), m.get("descrizione"), m.get("prezzo_notte"));
+    }
+
+    public boolean update(Map<String,String> m)
+    {
+        String query = "update strutture set nome = ?, citta = ?, indirizzo = ?, location = ?, link_Img = ?, descrizione = ?, prezzo_notte = ? where id = ?";
+        return db.update(query, m.get("nome"), m.get("citta"), m.get("indirizzo"), m.get("location"), m.get("link_Img"), m.get("descrizione"), m.get("prezzo_notte"), m.get("id"));
+    }
+
+    public boolean delete(int id)
+    {
+        String query = "delete from strutture where id = ?";
+        return db.update(query, id + "");
+    }
 
 }
