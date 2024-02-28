@@ -3,7 +3,6 @@ package com.project.bnbfinder.controllers;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,18 +10,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.project.bnbfinder.dao.DAOStrutture;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/bnb")
 public class BnbController {
 
 	@Autowired
 	private DAOStrutture ds;
 
-	@GetMapping("elencobnb")
-	public String elencobnb(Model model)
+	@GetMapping("paginabnb")
+	public String elencobnb(@RequestParam("id") int idBnb)
 	{
-		model.addAttribute("NomeSito", "AirBNB");
-		model.addAttribute("elencobnb", ds.leggiTutti());
-		return"elencobnb.jsp";
+		
+		return "bnb.jsp";
 	}
 
 	@GetMapping("prenotazioni")

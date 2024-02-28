@@ -30,16 +30,23 @@ public class DAOStrutture {
 
     public List<Map<String, String>> cercaPerCitta(String cittaScelta)
     {
-        String query = "SELECT * FROM strutture WHERE citta <= ?";
+        String query = "SELECT * FROM strutture WHERE citta = ?";
 
         return db.rows(query, cittaScelta);
     }
 
     public List<Map<String, String>> cercaPerLocation(String locationScelta)
     {
-        String query = "SELECT * FROM strutture WHERE location <= ?";
+        String query = "SELECT * FROM strutture WHERE location = ?";
 
         return db.rows(query, locationScelta);
+    }
+
+    public List<Map<String, String>> elencocitta()
+    {
+        String query = "select strutture.citta from strutture group by strutture.citta order by strutture.citta; ";
+
+        return db.rows(query);
     }
     
     public boolean create(Map<String,String> m)

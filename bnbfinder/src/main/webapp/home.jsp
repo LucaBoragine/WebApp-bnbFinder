@@ -5,7 +5,7 @@
 <%@ page import="java.util.Map" %>
 <%List<Map<String,String>> elencobnb = (List<Map<String,String>>) request.getAttribute("elencobnb"); %>
 <%List<Map<String,String>> elencocitta = (List<Map<String,String>>) request.getAttribute("elencocitta"); %> 
-<%List<Map<String,String>> elencolocation = (List<Map<String,String>>) request.getAttribute("elencolocation"); %>  
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -145,7 +145,7 @@
 	            <div class="row">
 	              <div class="col-lg-6">
 	                <div class="image">
-	                  <img src="<%=imgs[0] %>" alt="">
+	                  <img src="<%=imgs[1] %>" alt="">
 	                </div>
 	              </div>
 	              <div class="col-lg-6 align-self-center">
@@ -162,9 +162,9 @@
 	                      <span class="list">Daily Places</span>
 	                    </div>
 	                  </div>
-	                  <p><%= bnb.get("descrizione").substring(0, 20) %></p>
+	                  <p><%= bnb.get("descrizione").substring(0, 60) %>...</p>
 	                  <div class="main-button">
-	                    <a href="reservation.html">Make a Reservation</a>
+	                    <a href="/bnb/paginabnb">Visita</a>
 	                  </div>
 	                </div>
 	              </div>
