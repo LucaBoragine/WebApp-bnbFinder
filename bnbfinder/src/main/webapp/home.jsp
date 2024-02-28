@@ -4,7 +4,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%List<Map<String,String>> elencobnb = (List<Map<String,String>>) request.getAttribute("elencobnb"); %>
-<%String[] elencocitta = (String[]) request.getAttribute("elencocitta"); %>     
+<%List<Map<String,String>> elencocitta = (List<Map<String,String>>) request.getAttribute("elencocitta"); %> 
+<%List<Map<String,String>> elencolocation = (List<Map<String,String>>) request.getAttribute("elencolocation"); %>  
 <!DOCTYPE html>
 <html lang="it">
 
@@ -99,21 +100,20 @@
                   <fieldset>
                       <select name="citta" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
                           <option selected>Citta'</option>
-                          <% for(int i=0; i < elencocitta.length; i++){%>
-                          	<option value="<%= elencocitta[i] %>"><%= elencocitta[i] %></option>
+                          <% for(Map<String,String> citta : elencocitta){%>
+                          	<option value="<%= citta.get("citta") %>"><%= citta.get("citta") %></option>
                          <%} %>
                       </select>
                   </fieldset>
               </div>
               <div class="col-lg-4">
                   <fieldset>
-                      <select name="prezzo" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
+                      <select name="prezzo_notte" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
                           <option selected>Prezzo Massimo</option>
+                          <option value="30">30€</option>
+                          <option value="50">50€</option>
                           <option value="100">100€</option>
-                          <option value="250">250€</option>
-                          <option value="500">500€</option>
-                          <option value="1000">1,000€</option>
-                          <option value="2500">2,500€</option>
+                          <option value="150">150€</option>
                       </select>
                   </fieldset>
               </div>
