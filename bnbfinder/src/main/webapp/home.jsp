@@ -164,7 +164,7 @@
 	                  </div>
 	                  <p><%= bnb.get("descrizione").substring(0, 60) %>...</p>
 	                  <div class="main-button">
-	                    <a href="/bnb/paginabnb">Visita</a>
+	                    <a href="/bnb/infobnb?id=<%= bnb.get("id") %>">Visita</a>
 	                  </div>
 	                </div>
 	              </div>

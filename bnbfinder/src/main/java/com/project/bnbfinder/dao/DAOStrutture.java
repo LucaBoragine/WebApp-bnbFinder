@@ -41,6 +41,13 @@ public class DAOStrutture {
 
         return db.rows(query, locationScelta);
     }
+    
+    public Map<String, String> cercaId(int id)
+    {
+        String query = "SELECT * FROM strutture WHERE id = ?";
+
+        return db.row(query,id + "");
+    }
 
     public List<Map<String, String>> elencocitta()
     {
