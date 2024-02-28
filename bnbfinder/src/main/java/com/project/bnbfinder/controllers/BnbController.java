@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.bnbfinder.dao.DAOStrutture;
+
 @Controller
 @RequestMapping("/")
 public class BnbController {
@@ -23,6 +25,16 @@ public class BnbController {
 		return"elencobnb.jsp";
 	}
 
+	@GetMapping("prenotazioni")
+	public String prenotazioni()
+	{
+		//controlla valore "prenotazione", se è vero puoi cliccare su prenota, scegliere lasso di tempo e impostare la voce 
+		//"prenotazioni" come "false" durante quel periodo. Se il valore prenotazione è vero, cercando di prenotare in quel periodo
+		//restituirà "prenotazione non possibile in questi giorni". 		
+		return "redirect:prenotazioni";
+		
+	}
+
 	@GetMapping("formnuovo")
 	public String formnuovo()
 	{
@@ -32,7 +44,7 @@ public class BnbController {
 	@GetMapping("nuovobnb")
 	public String nuovobnb(@RequestParam Map<String,String> inputform)
 	{
-		if(ds.create(inputform))
+		if(ds.crea(inputform))
 		{
 			System.out.println("BNB inserito con successo");
 			return "redirect:elencobnb";
