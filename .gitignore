@@ -3,3 +3,4 @@
 /bnbfinder/src/main/resources/static/utility.jar
 /bnbfinder/target/m2e-wtp/web-resources/META-INF/maven/com.project/bnbfinder/pom.properties
 bnbfinder/target/m2e-wtp/web-resources/META-INF/maven/com.project/bnbfinder/pom.properties
+*.properties
