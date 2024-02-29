@@ -1,9 +1,9 @@
 package com.project.bnbfinder.controllers;
 import java.util.Map;
-//import javax.servlet.http.Cookie;
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.bnbfinder.dao.DAOUtenti;
-
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/utenti")
@@ -76,22 +71,22 @@ public class UtentiController
 	}
 
 	@GetMapping("logout")
-	public String logout(	HttpServletRequest request,
-							HttpServletResponse response)
-	{
-		System.out.println("Sei nel logout");
-		HttpSession session = request.getSession(false);
-		try
-		{
-			session.invalidate();
-			deleteCookies(request,response);
-			System.out.println("Sessione chiusa.");
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			System.out.println("Ipossibile chiudere la sessione");
-		}
-		return "redirect:/";
+	public String logout(HttpServletRequest request,
+	                     HttpServletResponse response) {
+	    System.out.println("Sei nel logout");
+	    HttpSession session = request.getSession(false);
+	    try {
+	        if (session != null) {
+	            session.invalidate();
+	            deleteCookies(request, response);
+	            System.out.println("Sessione invalidata con successo");
+	        } else {
+	            System.out.println("Sessione non trovata");
+	        }
+	    } catch (IllegalStateException e) {
+	        e.printStackTrace();
+	        System.out.println("Impossibile chiudere la sessione");
+	    }
+	    return "redirect:/";
 	}
 }

@@ -2,7 +2,10 @@ package com.project.bnbfinder.controllers;
 
 import java.util.Map;
 
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,11 +22,10 @@ public class HomeController {
 	private DAOStrutture ds;
 	
 	@GetMapping("/")
-	public String home(Model model) {
+	public String home(Model model, HttpServletRequest request, HttpServletResponse response) {
 		
 		model.addAttribute("elencobnb", ds.leggiTutti());
 		model.addAttribute("elencocitta", ds.elencocitta());
-		
 //		HttpSession session = request.getSession(false);
 //		
 //		if(session == null)
