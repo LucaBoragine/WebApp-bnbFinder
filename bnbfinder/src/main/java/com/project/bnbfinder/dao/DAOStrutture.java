@@ -34,6 +34,13 @@ public class DAOStrutture {
 
         return db.rows(query, cittaScelta);
     }
+    
+    public List<Map<String, String>> cercaPerPrezzoECitta(double prezzomax, String citta)
+    {
+        String query = "SELECT * FROM strutture WHERE prezzo_notte <= ? AND citta = ?";
+
+        return db.rows(query, prezzomax + "", citta);
+    }
 
     public List<Map<String, String>> cercaPerLocation(String locationScelta)
     {
@@ -51,7 +58,7 @@ public class DAOStrutture {
 
     public List<Map<String, String>> elencocitta()
     {
-        String query = "select strutture.citta from strutture group by strutture.citta order by strutture.citta; ";
+        String query = "select s.citta from strutture s group by s.citta order by s.citta; ";
 
         return db.rows(query);
     }

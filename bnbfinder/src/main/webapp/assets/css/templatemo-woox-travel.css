@@ -370,12 +370,12 @@ Header Style
 }
 
 .header-area .main-nav .logo img {
-  width: 159px;
-  margin-top: 15px;
+    width: 292px;
+    margin-top: 8px;
 }
 
 .background-header .main-nav .logo img {
-  width: 159px;
+  width: 292px;
 }
 
 .header-area .main-nav .nav {
@@ -1949,6 +1949,7 @@ Deals Page Style
   font-size: 15px;
   margin-bottom: 20px;
   display: block;
+  text-transform: capitalize;
 }
 
 .amazing-deals .item h4 {

@@ -58,11 +58,7 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="deals.html" class="active">Deals</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                        <li><a href="reservation.html">Book Yours</a></li>
+                        <li><a href="/">Home</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -91,14 +87,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <form id="search-form" method="get" role="search" action="cercabnb">
+          <form id="search-form" method="get" role="search" action="filter">
             <div class="row">
               <div class="col-lg-2">
                 <h4>Cerca per:</h4>
               </div>
               <div class="col-lg-4">
                   <fieldset>
-                      <select name="citta" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
+                      <select name="citta" class="form-select" aria-label="Default select example" id="chooseLocation">
                           <option selected>Citta'</option>
                           <% for(Map<String,String> citta : elencocitta){%>
                           	<option value="<%= citta.get("citta") %>"><%= citta.get("citta") %></option>
@@ -108,7 +104,7 @@
               </div>
               <div class="col-lg-4">
                   <fieldset>
-                      <select name="prezzo_notte" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
+                      <select name="prezzo_max" class="form-select" aria-label="Default select example" id="choosePrice" >
                           <option selected>Prezzo Massimo</option>
                           <option value="30">30€</option>
                           <option value="50">50€</option>
@@ -119,7 +115,7 @@
               </div>
               <div class="col-lg-2">                        
                   <fieldset>
-                      <button type="submit" class="border-button">Cerca</button>
+                      <button type="submit" class="border-button" onClick = "saveFormData()">Cerca</button>
                   </fieldset>
               </div>
             </div>
@@ -150,16 +146,16 @@
 	              </div>
 	              <div class="col-lg-6 align-self-center">
 	                <div class="content">
-	                  <span class="info">*Offer Until 24th March</span>
+	                  <span class="info"><%= bnb.get("location") %></span>
 	                  <h4><%= bnb.get("nome") %></h4>
 	                  <div class="row">
 	                    <div class="col-6">
-	                      <i class="fa fa-clock"></i>
-	                      <span class="list">5 Days</span>
+	                      <i class="fa fa-map"></i>
+	                      <span class="list"><%= bnb.get("citta") %></span>
 	                    </div>
 	                    <div class="col-6">
-	                      <i class="fa fa-map"></i>
-	                      <span class="list">Daily Places</span>
+	                      <i class="fa fa-eur"></i>
+	                      <span class="list"><%= bnb.get("prezzo_notte") %>/notte</span>
 	                    </div>
 	                  </div>
 	                  <p><%= bnb.get("descrizione").substring(0, 60) %>...</p>
