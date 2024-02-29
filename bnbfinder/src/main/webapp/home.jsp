@@ -62,11 +62,8 @@
                         <%if(request.getSession(false) != null){ %>
                         	<li><a href="utenti/logout">Logout</a></li>
                         <%} %>
-                       <%if(request.getSession(false) == null){ %>
 	                       <li><a href="utenti/formlogin">Login</a></li>
 	                       <li><a href="utenti/formnuovoutente">Registrati</a></li>
-                        <%} %>		
-                        <li><a href="utenti/formlogin"><%=request.getSession(false) %></a></li>	   
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
