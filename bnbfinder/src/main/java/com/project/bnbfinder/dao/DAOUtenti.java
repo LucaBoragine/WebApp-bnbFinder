@@ -24,10 +24,10 @@ public class DAOUtenti
 	{
 		System.out.println("Nuovo utente: " + m);
 		String query = 	"insert into utenti\r\n" + 
-						"(username,password,nome,cognome,data_nascita,email)\r\n" + 
+						"(usarname,password,nome,cognome,data_nascita,email)\r\n" + 
 						"values\r\n" + 
-						"(?,?,?,?,date(now()),?)";
-		return db.update(query, m.get("username"),
+						"(?,?,?,?,?,?)";
+		return db.update(query, m.get("usarname"),
 								m.get("password"),
 								m.get("nome"),
 								m.get("cognome"),

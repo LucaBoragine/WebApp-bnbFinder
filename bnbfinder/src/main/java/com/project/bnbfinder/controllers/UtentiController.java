@@ -1,9 +1,9 @@
 package com.project.bnbfinder.controllers;
 import java.util.Map;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.Cookie;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.bnbfinder.dao.DAOUtenti;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 @Controller
-@RequestMapping("utenti")
+@RequestMapping("/utenti")
 public class UtentiController
 {
 	@Autowired
@@ -22,12 +27,14 @@ public class UtentiController
 	@GetMapping("formnuovoutente")
 	public String formNuovoUtente()
 	{
-		return "formnuovoutente.html";
+		System.out.println("Sei in formnuovoutente");
+		return "/utenti/formnuovoutente.html";
 	}
 	
 	@GetMapping("registrati")
 	public String registrati( @RequestParam Map<String,String> nuovoUtente)
 	{
+		System.out.println("Sei in registrati");
 		if(du.create(nuovoUtente))
 			System.out.println("Utente creato con successo");
 		else
@@ -35,13 +42,17 @@ public class UtentiController
 		return "redirect:/";
 	}
 	
-
+	@GetMapping("formlogin")
+	public String formlogin()
+	{
+		return "/utenti/formlogin.html";
+	}
+	
 	@GetMapping("login")
 	public String login(	@RequestParam("user") String u,
 							@RequestParam("pass") String p,
 							HttpServletRequest request)
 	{
-
 		Map<String,String> utente = du.trovaUtente(u, p);
 		System.out.println("Utente: " + utente);
 		if(utente != null)
@@ -49,10 +60,9 @@ public class UtentiController
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utenteloggato",utente);
 		}
-
 		return "redirect:/";
 	}
-	
+
 	private void deleteCookies(	HttpServletRequest request,
 								HttpServletResponse response)
 	{
@@ -64,11 +74,12 @@ public class UtentiController
             response.addCookie(cookie);
         }
 	}
-	
+
 	@GetMapping("logout")
 	public String logout(	HttpServletRequest request,
 							HttpServletResponse response)
 	{
+		System.out.println("Sei nel logout");
 		HttpSession session = request.getSession(false);
 		try
 		{
