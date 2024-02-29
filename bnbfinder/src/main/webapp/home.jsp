@@ -82,9 +82,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h4>Con un click</h4>
-          <h2>Trova il B&amp;B dei tuoi sogni</h2>
-          <div class="border-button"><a href="about.html">Discover More</a></div>
+          <h4>Trova il B&amp;B dei tuoi sogni con</h4>
+          <h2>Il Manuale del B&amp;B</h2>
         </div>
       </div>
     </div>
@@ -224,10 +223,10 @@
 
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/wow.js"></script>
   <script src="assets/js/tabs.js"></script>
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="assets/js/custom2.js"></script>
 
   <script>
     $(".option").click(function(){

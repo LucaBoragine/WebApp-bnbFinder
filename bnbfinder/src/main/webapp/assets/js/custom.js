@@ -10,7 +10,7 @@
     });
 
 	// WOW JS
-	$(window).on ('load', function (){
+/*	$(window).on ('load', function (){
         if ($(".wow").length) { 
             var wow = new wow ({
                 boxClass:     'wow',      // Animated element css class (default is wow)
@@ -21,7 +21,7 @@
             });
             wow.init();
         }
-    });
+    });*/
 
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
@@ -162,7 +162,7 @@
 		}
 	});
 
-	$(document).ready(function () {
+/*	$(document).ready(function () {
 	    $(document).on("scroll", onScroll);
 	    
 	    //smoothscroll
@@ -184,9 +184,9 @@
 	            $(document).on("scroll", onScroll);
 	        });
 	    });
-	});
+	});*/
 
-	function onScroll(_event){
+/*	function onScroll(_event){
 	    var scrollPos = $(document).scrollTop();
 	    $('.nav a').each(function () {
 	        var currLink = $(this);
@@ -199,7 +199,7 @@
 	            currLink.removeClass("active");
 	        }
 	    });
-	}
+	}*/
 
 
 	// Page loading animation
@@ -261,28 +261,3 @@
 
 
 })(window.jQuery);
-
-
-//Salvataggio dati form e reimpostazione al caricamento della pagina
-
-function saveFormData() {
-  var formData = {
-    citta: document.getElementsByName("citta")[0].value,
-    prezzo: document.getElementsByName("prezzo_max")[0].value
-  };
-  localStorage.setItem("formData", JSON.stringify(formData));
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  var savedFormData = localStorage.getItem("formData");
-  if (savedFormData) {
-    savedFormData = JSON.parse(savedFormData);
-    document.getElementsByName("citta")[0].value = savedFormData.citta;
-    document.getElementsByName("prezzo_max")[0].value = savedFormData.prezzo;
-  }
-  
-    if (window.location.href === "http://localhost:8080/") {
-    	document.getElementsByName("citta")[0].value = "Citta'";
-    	document.getElementsByName("prezzo_max")[0].value = "Prezzo Massimo";
-  }
-});

@@ -22,7 +22,7 @@ public class BnbController {
 	{
 		model.addAttribute( "mappabnb" ,ds.cercaId(idBnb));
 		model.addAttribute("optionals", ds.optionalsPerStruttura(idBnb));
-		
+		model.addAttribute( "altribnb" ,ds.cercaPerCitta(ds.cercaId(idBnb).get("citta")));
 		
 		return "infobnb.jsp";
 	}

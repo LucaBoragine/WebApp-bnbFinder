@@ -206,6 +206,10 @@ body {
   border: 1px solid #fff;
 }
 
+.weekly-offers .item{
+	text-transform: capitalize;
+}
+
 section {
   margin-top: 120px;
 }
@@ -1366,6 +1370,7 @@ About Page Style
   margin: 0px 15px;
   position: relative;
   min-height: 420px;
+  text-transform: capitalize;
 }
 
 .weekly-offers .item .thumb img {
@@ -1387,6 +1392,7 @@ About Page Style
 .weekly-offers .item .thumb .text h4 {
   font-size: 20px;
   display: inline-block;
+  padding-right: 10px;
 }
 
 .weekly-offers .item .thumb .text h6 {
