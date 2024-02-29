@@ -22,15 +22,14 @@ public class HomeController {
 	private DAOStrutture ds;
 	
 	@GetMapping("/")
-	public String home(Model model, HttpServletRequest request, HttpServletResponse response) {
-		
+	public String home(Model model) {
 		model.addAttribute("elencobnb", ds.leggiTutti());
-		model.addAttribute("elencocitta", ds.elencocitta());
+		model.addAttribute("elencocitta", ds.elencocitta());		
+
 //		HttpSession session = request.getSession(false);
 //		
 //		if(session == null)
 //			return "utenti/formlogin.html";
-		
 		return "home.jsp";		
 	}
 
@@ -47,7 +46,4 @@ public class HomeController {
 		}		
 		return "home.jsp";
 	}
-	
-	
-	
 }
