@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
 <%Map<String,String> bnb = (Map<String,String>) request.getAttribute("mappabnb"); %>
+<%Map<String,String> optionals = (Map<String,String>) request.getAttribute("optionals"); %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,17 +56,13 @@ https://templatemo.com/tm-580-woox-travel
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="../assets/images/logo.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="redirect:/">Home</a></li>
-                        <li><a href="about.html" class="active">About</a></li>
-                        <li><a href="deals.html">Deals</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                        <li><a href="reservation.html">Book Yours</a></li>
+                        <li><a href="/">Home</a></li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -127,33 +124,54 @@ https://templatemo.com/tm-580-woox-travel
             </div>
             <div class="col-lg-6">
               <div class="info-item">
-                <h4>175.000+</h4>
-                <span>Amazing Accomoditations</span>
+                 <h4><%= bnb.get("location") %></h4>
+                 <span>Location</span>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="info-item">
                 <div class="row">
                   <div class="col-lg-6">
-                    <h4>12.560+</h4>
-                    <span>Amazing Places</span>
+                	<h4><%= bnb.get("citta") %></h4>
+                	<span>Citta'</span>
                   </div>
                   <div class="col-lg-6">
-                    <h4>240.580+</h4>
-                    <span>Different Check-ins Yearly</span>
+                    <h4><%= bnb.get("indirizzo") %></h4>
+                    <span>Indirizzo</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p>sed do eiusmod tempor incididunt ut labore.</p>
-          <div class="main-button">
-            <a href="reservation.html">Discover More</a>
-          </div>
         </div>
       </div>
     </div>
   </div>
+  
+  <div id="section-1"class="container">
+  	<div class="section-heading">
+       <h2>Optionals inclusi</h2>
+    </div>
+  	<div class="row">
+    <div class="col-lg-12">
+      <div class="more-info">
+        <div class="row">
+        <%for(String k : optionals.keySet()){%>
+        	<%if(!k.equalsIgnoreCase("id_struttura")){ %>
+        		<%if(optionals.get(k).equals("1")){%>
+	          		<div class="col-lg-3 col-sm-6 col-6">
+	            	<!--<i class="fa fa-user"></i>-->
+	            		<span class="icon"><img src="../assets/images/icon/<%= k %>.png" alt="Food"></span>
+	            		<h4><%= k.replace('_', ' ') %></h4>
+	          		</div> 
+          		<%} %>
+          	<%}%>	
+          <%} %>                       					  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <div class="weekly-offers">
     <div class="container">

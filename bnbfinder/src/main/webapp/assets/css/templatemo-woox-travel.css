@@ -755,6 +755,22 @@ Banner Style
   bottom: 130px;
   display: inline-block;
 }
+.container#section-1{
+	margin-top:0px;	
+	height: 0px;
+}
+
+.container#section-1 .more-info {
+  margin-top: 60px;
+  background-color: #fff;
+  padding: 30px 60px;
+  border-radius: 61px;
+  position:relative;
+  width: 80%;
+  left: 10%;
+  bottom: 25px;
+  display: inline-block;
+}
 #section-1 .more-info i {
   color: #22b3c1;
   font-size: 24px;
@@ -774,7 +790,25 @@ Banner Style
   color: #22b3c1;
   font-weight: 700;
   line-height: 28px;
+  text-transform: capitalize;
 }
+
+
+.container#section-1 .section-heading{
+	text-align: center;
+    margin-bottom: 0px;
+    margin-top: 50px;
+}
+
+.container#section-1 .more-info h4 {
+  text-align: center;
+  font-size: 20px;
+  color: #22b3c1;
+  font-weight: 700;
+  line-height: 28px;
+  text-transform: capitalize;
+}
+
 #section-1 .more-info h4 span {
   font-size: 15px;
   color: #afafaf;
@@ -933,6 +967,25 @@ Banner Style
 Visit Country Style
 --------------------------------------------- 
 */
+
+.more-info .icon {
+    display: block;
+    height: 66px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 62px;
+    color: #8d99af;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+.more-info .icon img {
+    max-width: 35px;
+    margin-bottom: -3px;
+    width: 100%;
+    overflow: hidden;
+}
+
 
 .visit-country {
   margin-top: 120px;
@@ -1418,8 +1471,7 @@ About Page Style
 
 .more-about {
   margin-top: 120px;
-  padding-bottom: 120px;
-  border-bottom: 1px solid #eee;
+
 }
 
 .more-about .left-image {
@@ -1435,6 +1487,7 @@ About Page Style
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 30px;
+  text-transform: capitalize;
 }
 
 .more-about .info-item h4 {
