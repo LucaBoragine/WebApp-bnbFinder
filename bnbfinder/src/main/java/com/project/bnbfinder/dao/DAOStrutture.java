@@ -55,6 +55,13 @@ public class DAOStrutture {
 
         return db.row(query,id + "");
     }
+    
+    public Map<String, String> optionalsPerStruttura(int idStruttura)
+    {
+        String query = "SELECT * FROM optionals WHERE id_struttura = ?";
+
+        return db.row(query,idStruttura + "");
+    }
 
     public List<Map<String, String>> elencocitta()
     {

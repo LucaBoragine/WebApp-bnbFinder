@@ -21,6 +21,8 @@ public class BnbController {
 	public String elencobnb(@RequestParam("id") int idBnb, Model model)
 	{
 		model.addAttribute( "mappabnb" ,ds.cercaId(idBnb));
+		model.addAttribute("optionals", ds.optionalsPerStruttura(idBnb));
+		
 		
 		return "infobnb.jsp";
 	}
