@@ -12,7 +12,7 @@
 	// WOW JS
 	$(window).on ('load', function (){
         if ($(".wow").length) { 
-            var wow = new WOW ({
+            var wow = new wow ({
                 boxClass:     'wow',      // Animated element css class (default is wow)
                 animateClass: 'animated', // Animation css class (default is animated)
                 offset:       20,         // Distance to the element when triggering the animation (default is 0)
@@ -175,8 +175,7 @@
 	        })
 	        $(this).addClass('active');
 	      
-	        var target = this.hash,
-	        menu = target;
+	        var target = this.hash;
 	       	var target = $(this.hash);
 	        $('html, body').stop().animate({
 	            scrollTop: (target.offset().top) - 79
@@ -187,7 +186,7 @@
 	    });
 	});
 
-	function onScroll(event){
+	function onScroll(_event){
 	    var scrollPos = $(document).scrollTop();
 	    $('.nav a').each(function () {
 	        var currLink = $(this);

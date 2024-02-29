@@ -170,6 +170,20 @@ body {
   color: #fff;
 }
 
+
+#imgBnb img{
+	height: 337px;
+}
+
+.owl-carousel .owl-item img {
+ height: 300px;
+
+}
+
+.more-about p{
+	text-transform: capitalize;
+}
+
 .main-button a {
   font-size: 14px;
   color: #fff;

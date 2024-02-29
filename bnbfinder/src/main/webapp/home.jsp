@@ -147,7 +147,7 @@
 	          <div class="item">
 	            <div class="row">
 	              <div class="col-lg-6">
-	                <div class="image">
+	                <div id ="imgBnb" class="image">
 	                  <img src="<%=imgs[1] %>" alt="">
 	                </div>
 	              </div>
@@ -165,7 +165,7 @@
 	                      <span class="list"><%= bnb.get("prezzo_notte") %>/notte</span>
 	                    </div>
 	                  </div>
-	                  <p><%= bnb.get("descrizione").substring(0, 60) %>...</p>
+	                  <p><%= bnb.get("descrizione").substring(0, 30) %>...</p>
 	                  <div class="main-button">
 	                    <a href="/bnb/infobnb?id=<%= bnb.get("id") %>">Visita</a>
 	                  </div>

@@ -15,21 +15,19 @@ import com.project.bnbfinder.dao.DAOUtenti;
 @Controller
 @RequestMapping("/utenti")
 public class UtentiController
-{
+{	
 	@Autowired
 	private DAOUtenti du;
 	
 	@GetMapping("formnuovoutente")
 	public String formNuovoUtente()
 	{
-		System.out.println("Sei in formnuovoutente");
 		return "/utenti/formnuovoutente.html";
 	}
 	
 	@GetMapping("registrati")
 	public String registrati( @RequestParam Map<String,String> nuovoUtente)
 	{
-		System.out.println("Sei in registrati");
 		if(du.create(nuovoUtente))
 			System.out.println("Utente creato con successo");
 		else
@@ -44,8 +42,8 @@ public class UtentiController
 	}
 	
 	@GetMapping("login")
-	public String login(	@RequestParam("user") String u,
-							@RequestParam("pass") String p,
+	public String login(	@RequestParam("username") String u,
+							@RequestParam("password") String p,
 							HttpServletRequest request)
 	{
 		Map<String,String> utente = du.trovaUtente(u, p);
@@ -59,11 +57,9 @@ public class UtentiController
 	}
 
 	private void deleteCookies(	HttpServletRequest request,
-								HttpServletResponse response)
-	{
+								HttpServletResponse response){
         Cookie[] cookies = request.getCookies();
-        for(Cookie cookie : cookies)
-        {
+        for(Cookie cookie : cookies){
             cookie.setMaxAge(0);
             cookie.setPath(request.getContextPath() + "/");
             response.addCookie(cookie);
@@ -74,7 +70,7 @@ public class UtentiController
 	public String logout(HttpServletRequest request,
 	                     HttpServletResponse response) {
 	    System.out.println("Sei nel logout");
-	    HttpSession session = request.getSession(false);
+	    HttpSession	session = request.getSession(false);
 	    try {
 	        if (session != null) {
 	            session.invalidate();
