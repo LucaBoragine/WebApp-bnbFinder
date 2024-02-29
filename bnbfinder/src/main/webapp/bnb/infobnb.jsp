@@ -161,7 +161,7 @@ https://templatemo.com/tm-580-woox-travel
         		<%if(optionals.get(k).equals("1")){%>
 	          		<div class="col-lg-3 col-sm-6 col-6">
 	            	<!--<i class="fa fa-user"></i>-->
-	            		<span class="icon"><img src="../assets/images/icon/<%= k %>.png" alt="Food"></span>
+	            		<span class="icon"><img src="../assets/images/icon/<%= k %>.png" ></span>
 	            		<h4><%= k.replace('_', ' ') %></h4>
 	          		</div> 
           		<%} %>
