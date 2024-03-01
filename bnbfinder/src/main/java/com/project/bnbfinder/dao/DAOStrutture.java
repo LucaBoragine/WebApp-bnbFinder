@@ -62,6 +62,11 @@ public class DAOStrutture {
 
         return db.row(query,idStruttura + "");
     }
+    
+    public boolean prenotaStruttura(Map<String,String> p) {
+    	 String query = "insert into prenotazioni (inizio,fine,id_struttura,id_utente) values (?,?,?,?)";
+         return db.update(query, p.get("inizio"), p.get("fine"), p.get("id_struttura"), p.get("id_utente"));
+    }
 
     public List<Map<String, String>> elencocitta()
     {

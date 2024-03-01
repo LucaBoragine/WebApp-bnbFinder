@@ -760,8 +760,8 @@ Banner Style
 
 #section-1 {
   margin-top: 0px;
-  height: 100vh;
-  min-height: 700px;
+  /* height: 100vh; */
+  min-height: 390px;
   color: #fff;
   background-color: #222;
   position: relative;
@@ -2242,8 +2242,8 @@ Reservation Page Style
 .reservation-form #reservation-form {
   padding: 60px 120px;
   background-color: #f9f9f9;
-  border-bottom-right-radius: 23px;
-  border-bottom-left-radius: 23px;
+  border-radius: 23px;
+
 }
 
 .reservation-form #reservation-form label {

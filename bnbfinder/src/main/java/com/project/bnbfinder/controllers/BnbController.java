@@ -3,6 +3,7 @@ package com.project.bnbfinder.controllers;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,16 +29,29 @@ public class BnbController {
 		model.addAttribute( "altribnb" ,ds.cercaPerCitta(ds.cercaId(idBnb).get("citta")));
 		HomeController.setModelUtente(model,request);
 		
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			 String messPrenot = (String) session.getAttribute("messagep");
+			 model.addAttribute("messagep",messPrenot);
+			 session.removeAttribute("messagep");
+		}
+		
 		return "infobnb.jsp";
 	}
 
-	@GetMapping("prenotazioni")
-	public String prenotazioni()
-	{
-		//controlla valore "prenotazione", se è vero puoi cliccare su prenota, scegliere lasso di tempo e impostare la voce 
-		//"prenotazioni" come "false" durante quel periodo. Se il valore prenotazione è vero, cercando di prenotare in quel periodo
-		//restituirà "prenotazione non possibile in questi giorni". 		
-		return "redirect:prenotazioni";
+	@GetMapping("prenotazione")
+	public String prenotazioni(@RequestParam Map<String,String> prenotazione, Model model, HttpServletRequest request)
+	{	
+		HttpSession session = request.getSession(false);
+		if(ds.prenotaStruttura(prenotazione)) {
+			System.out.println("Prenotazione effettuata con successo");
+			session.setAttribute("messagep", "Prenotazione effettuata con successo!");
+		}
+		else {
+			System.out.println("Impossibile effetuare la prenotazione");
+			session.setAttribute("messagep", "Impossibile effetuare la prenotazione");
+		}		
+		return "redirect:"+request.getHeader("Referer");
 		
 	}
 

@@ -1,3 +1,9 @@
+<%@ page language="java" 
+	contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ page session = "false" %>
+<%String message = (String) request.getAttribute("message"); %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -13,6 +19,12 @@
 	<link href="../assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
 </head>
 <body class="templatemo-bg-gray">
+<%if (message != null && !message.isEmpty()) {%>
+    <script>
+        alert("<%= message %>");
+    </script>
+<%}%>
+
 	<h1 class="margin-bottom-15" style="text-align: center;">Creazione Account</h1>
 	<div class="container">
 		<div class="col-md-12">			
@@ -57,16 +69,20 @@
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <input type="submit" value="Crea Account" class="btn btn-info">
+			            <input type="submit" value="Create account" class="btn btn-info">
 			            <a href="/" class="pull-right">Torna alla Home</a>
 			          </div>
 			        </div>	
 				</div>				    	
 		      </form>		      
 		</div>
-	</div>	
+	</div>
+		
+	
 	<script src="../vendor/jquery/jquery.min.js"></script>
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>	
-	<script src="../assets/js/pswcontroll.js"></script>	
+	<script src="../assets/js/pswcontroll.js"></script>
+
+
 </body>
 </html>

@@ -24,20 +24,22 @@ public class UtentiController
 	@GetMapping("formnuovoutente")
 	public String formNuovoUtente()
 	{
-		return "/utenti/formnuovoutente.html";
+		return "/utenti/formnuovoutente.jsp";
 	}
 	
 	@PostMapping("registrati")
-	public String registrati( @RequestParam Map<String,String> nuovoUtente, HttpServletRequest request)
+	public String registrati( @RequestParam Map<String,String> nuovoUtente, HttpServletRequest request, Model model)
 	{
-		if(du.create(nuovoUtente))
+		if(du.create(nuovoUtente)) {
 			System.out.println("Utente creato con successo");
-		else
+			model.addAttribute("message", "Utente creato con successo!");
+		}
+		else {
 			System.out.println("Impossibile creare l'utente");
+			model.addAttribute("message", "Impossibile creare l'utente");
+		}
 		
-		System.out.println("redirect:"+request.getHeader("Referer"));
-		
-		return "redirect:/";
+		return "/utenti/formnuovoutente.jsp";
 	}
 	
 	@GetMapping("formlogin")

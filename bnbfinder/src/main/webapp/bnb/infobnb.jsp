@@ -7,6 +7,8 @@
 <%Map<String,String> bnb = (Map<String,String>) request.getAttribute("mappabnb"); %>
 <%Map<String,String> optionals = (Map<String,String>) request.getAttribute("optionals"); %>
 <%List<Map<String,String>> altribnb = (List<Map<String,String>>) request.getAttribute("altribnb"); %>
+<%String messagep = (String) request.getAttribute("messagep"); %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,8 +25,11 @@
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+
+    
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">  
+	
 	<link href="../assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
     <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
@@ -41,6 +46,11 @@ https://templatemo.com/tm-580-woox-travel
   </head>
 
 <body>
+	<%if (messagep != null && !messagep.isEmpty()) {%>
+	    <script>
+	        alert("<%= messagep %>");
+	    </script>  
+	<%}%>
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -79,7 +89,7 @@ https://templatemo.com/tm-580-woox-travel
                       		<li><a href="../utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><form class="form-inline pull-right margin-left" role="form" action="../utenti/login" method="post">
+	                       <li><form class="form-inline pull-right" role="form" action="../utenti/login" method="post">
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
@@ -93,7 +103,7 @@ https://templatemo.com/tm-580-woox-travel
 								  <button type="submit" class="btn btn-default">Accedi</button>
 								</form>																
 							</li>
-							<li><a class="buttonHeader" href= "../utenti/formnuovoutente"><button  class="btn btn-default">Registrati</button></a></li>								                       
+							<li><a class="buttonHeader" href= "../utenti/formnuovoutente" target="_blank"><button  class="btn btn-default">Registrati</button></a></li>								                       
 						 <%}%>
                     </ul> 
                     <a class='menu-trigger'>
@@ -204,6 +214,51 @@ https://templatemo.com/tm-580-woox-travel
     </div>
   </div>
 </div>
+<div class="reservation-form">
+  <div class="container">
+    <div class="row">
+   <div class="col-lg-12">
+     <form id="reservation-form"  method="get" role="search" action="prenotazione">
+     	<input type="hidden" name="id_struttura" value="<%= bnb.get("id") %>">
+     	<%if(request.getSession(false) != null){ %>
+     		<% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato");%>      
+     		<input type="hidden" name="id_utente" value="<%= utente.get("id") %>">
+     	<%}%>
+       <div class="row">
+         <div class="col-lg-12">
+           <h4>Richiedi prenotazione per il B&amp;B <em><%= bnb.get("nome") %></em></h4>
+         </div>
+       
+		<div class="col-lg-6">
+           <fieldset>
+               <label for="Number" class="form-label">Data Check In</label>
+               <input type="date" name="inizio" class="date" required>
+           </fieldset>
+          </div> 
+         <div class="col-lg-6">
+           <fieldset>
+               <label for="Number" class="form-label">Data Check Out</label>
+               <input type="date" name="fine" class="date" required>
+           </fieldset>
+         </div>
+
+         <div class="col-lg-12">                        
+             <fieldset>
+             <%if(request.getSession(false) != null){ %>
+                 <button type="submit" class="main-button">Richiedi Prenotazione</button>
+             <%}%>
+             <%if(request.getSession(false) == null){ %>
+                 <h5>E' necessario effettuare il <em>LogIn</em> per richiedere una <em>prenotazione</em></h5>
+             <%}%>
+             </fieldset>
+         </div>
+       </div>
+     </form>
+   </div>
+   </div>
+  </div>
+</div>
+
 
   <div class="weekly-offers">
     <div class="container">
@@ -266,14 +321,13 @@ https://templatemo.com/tm-580-woox-travel
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
   <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>    	
   <script src="../assets/js/isotope.min.js"></script>
   <script src="../assets/js/owl-carousel.js"></script>
   <script src="../assets/js/tabs.js"></script>
   <script src="../assets/js/popup.js"></script>
   <script src="../assets/js/custom.js"></script>
-
+	
   <script>
     $(".option").click(function(){
       $(".option").removeClass("active");

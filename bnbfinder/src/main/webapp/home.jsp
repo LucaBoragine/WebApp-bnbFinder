@@ -74,7 +74,7 @@
                       		<li><a href="utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><form class="form-inline pull-right margin-left" role="form" action="/utenti/login" method="post">
+	                       <li><form class="form-inline pull-right" role="form" action="/utenti/login" method="post">
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
@@ -88,7 +88,7 @@
 								  <button type="submit" class="btn btn-default">Accedi</button>
 								</form>																
 							</li>
-							<li><a class="buttonHeader" href= "utenti/formnuovoutente"><button  class="btn btn-default">Registrati</button></a></li>								                       
+							<li><a class="buttonHeader" href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default">Registrati</button></a></li>								                       
 						 <%}%>
                     </ul> 
                      
