@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
+<%@ page session = "false" %>
 <%Map<String,String> bnb = (Map<String,String>) request.getAttribute("mappabnb"); %>
 <%Map<String,String> optionals = (Map<String,String>) request.getAttribute("optionals"); %>
 <%List<Map<String,String>> altribnb = (List<Map<String,String>>) request.getAttribute("altribnb"); %>
@@ -65,6 +66,13 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/">Home</a></li>
+                        <%if(request.getSession(false) != null){ %>
+                        	<li><a href="utenti/logout">Logout</a></li>
+                        <%} %>
+                         <%if(request.getSession(false) == null){ %>
+	                       <li><a href="utenti/formlogin">Login</a></li>
+	                       <li><a href="utenti/formnuovoutente">Registrati</a></li>
+						 <%} %>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

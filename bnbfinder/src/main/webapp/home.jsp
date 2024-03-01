@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
+<%@ page session = "false" %>
 <%List<Map<String,String>> elencobnb = (List<Map<String,String>>) request.getAttribute("elencobnb"); %>
 <%List<Map<String,String>> elencocitta = (List<Map<String,String>>) request.getAttribute("elencocitta"); %> 
 
@@ -61,11 +62,11 @@
                         <li><a href="/">Home</a></li>
                         <%if(request.getSession(false) != null){ %>
                         	<li><a href="utenti/logout">Logout</a></li>
-                        <%} %>
+                        <%}%>
                          <%if(request.getSession(false) == null){ %>
 	                       <li><a href="utenti/formlogin">Login</a></li>
 	                       <li><a href="utenti/formnuovoutente">Registrati</a></li>
-						 <%} %>
+						 <%}%>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -134,12 +135,6 @@
   <div class="amazing-deals">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading text-center">
-            <h2>Best Weekly Offers In Each City</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-          </div>
-        </div>
         <%for(Map<String,String> bnb : elencobnb){ %>
         <%String[] imgs = bnb.get("link_img").split(","); %>
 	        <div class="col-lg-6 col-sm-6">
