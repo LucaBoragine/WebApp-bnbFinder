@@ -33,7 +33,10 @@ public class UtentiController
 			System.out.println("Utente creato con successo");
 		else
 			System.out.println("Impossibile creare l'utente");
-		return "redirect:"+request.getHeader("Referer");
+		
+		System.out.println("redirect:"+request.getHeader("Referer"));
+		
+		return "redirect:/";
 	}
 	
 	@GetMapping("formlogin")

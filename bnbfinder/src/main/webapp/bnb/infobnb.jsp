@@ -79,7 +79,7 @@ https://templatemo.com/tm-580-woox-travel
                       		<li><a href="../utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><form class="form-inline pull-right margin-left" role="form" action="../utenti/login" method="get">
+	                       <li><form class="form-inline pull-right margin-left" role="form" action="../utenti/login" method="post">
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
