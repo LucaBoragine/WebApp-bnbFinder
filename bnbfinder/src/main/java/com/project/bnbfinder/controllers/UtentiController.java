@@ -52,8 +52,12 @@ public class UtentiController
 		{	
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utenteloggato",utente);
+			return "redirect:/";
 		}
-		return "redirect:/";
+		else {
+			System.out.println("Username o password inserite non valide.");
+			return "/utenti/formlogin.html";
+		}
 	}
 
 	private void deleteCookies(	HttpServletRequest request,
