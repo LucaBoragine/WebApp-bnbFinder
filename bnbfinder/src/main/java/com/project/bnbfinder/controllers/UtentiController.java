@@ -52,8 +52,12 @@ public class UtentiController
 		{	
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utenteloggato",utente);
+			return "redirect:/";
 		}
-		return "redirect:/";
+		else {
+			System.out.println("Username o password inserite non valide.");
+			return "/utenti/formlogin.html";
+		}
 	}
 
 	private void deleteCookies(	HttpServletRequest request,
@@ -69,9 +73,9 @@ public class UtentiController
 	@GetMapping("logout")
 	public String logout(HttpServletRequest request,
 	                     HttpServletResponse response) {
-	    System.out.println("Sei nel logout");
 	    HttpSession	session = request.getSession(false);
 	    try {
+	    	System.out.println(session.getAttribute("utenteloggato"));
 	        if (session != null) {
 	            session.invalidate();
 	            deleteCookies(request, response);

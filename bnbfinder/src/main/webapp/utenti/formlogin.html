@@ -1,17 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>PAGINA DI LOGIN</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accesso</title>
+<style>
+    body {
+        background-color: #3498db; /* sfondo blu */
+        font-family: Arial, sans-serif;
+        color: #fff; /* testo bianco */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    form {
+        background-color: rgba(255, 255, 255, 0.2); /* sfondo bianco traslucido */
+        padding: 20px;
+        margin-bottom: 500px;
+        margin-right: 1000px;
+        margin-left: 0px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* ombra */
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        width: 50%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2980b9; /* colore pulsante */
+        color: #fff; /* testo bianco */
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #3498db; /* colore pulsante al passaggio del mouse */
+    }
+</style>
+</head>
+<body>
         <h1>LOGIN</h1>
         <hr>
         <form action="login" method="get">
             USERNAME <input type="text" name="username"><br>
-            PASSWORD <input type="text" name="password"><br>
+            PASSWORD <input type="password" name="password"><br>
+        <a href="formnuovoutente">REGISTRATI</a>
             <input type="submit" value="ACCEDI">
         </form>
-        <a href="formnuovoutente">REGISTRATI</a>
     </body>
 </html>

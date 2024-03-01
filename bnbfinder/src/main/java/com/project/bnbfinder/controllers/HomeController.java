@@ -23,6 +23,14 @@ public class HomeController {
 		return "home.jsp";		
 	}
 
+	
+//	@GetMapping("/")
+//	public String home(HttpSession session) {
+//		if(session.getAttribute("utenteloggato") == null)
+//			return "redirect:/utenti/formlogin";	
+//		return "home.jsp";		
+//	}
+
 	@GetMapping("filter")
 	public String filter(@RequestParam Map<String,String> map, Model model) {
 		model.addAttribute("elencocitta", ds.elencocitta());

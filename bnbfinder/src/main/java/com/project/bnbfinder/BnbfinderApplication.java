@@ -9,5 +9,4 @@ public class BnbfinderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BnbfinderApplication.class, args);
 	}
-
 }
