@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,7 +27,7 @@ public class UtentiController
 		return "/utenti/formnuovoutente.html";
 	}
 	
-	@GetMapping("registrati")
+	@PostMapping("registrati")
 	public String registrati( @RequestParam Map<String,String> nuovoUtente, HttpServletRequest request)
 	{
 		if(du.create(nuovoUtente))
@@ -45,7 +46,7 @@ public class UtentiController
 		return "/utenti/formlogin.html";
 	}
 	
-	@GetMapping("login")
+	@PostMapping("login")
 	public String login(	@RequestParam("username") String u,
 							@RequestParam("password") String p,
 							HttpServletRequest request, Model model)

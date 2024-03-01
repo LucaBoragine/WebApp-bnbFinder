@@ -2062,6 +2062,7 @@ Deals Page Style
   padding-bottom: 25px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
+  text-wrap: nowrap;
 }
 
 .amazing-deals .item i {
