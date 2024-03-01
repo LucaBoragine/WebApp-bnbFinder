@@ -60,15 +60,13 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/">Home</a></li>
-
-                         <%if(session.getAttribute("utenteloggato") == null){ %>
+                        <%if(request.getSession(false) != null){ %>
+                        	<li><a href="utenti/logout">Logout</a></li>
+                        <%}%>
+                         <%if(request.getSession(false) == null){ %>
 	                       <li><a href="utenti/formlogin">Login</a></li>
 	                       <li><a href="utenti/formnuovoutente">Registrati</a></li>
-						 <%} %>
-						 <%if(session.getAttribute("utenteloggato") != null){ %>
-			            	<li><a href="utenti/logout">Logout</a></li>
-						 <%} %>
-
+						 <%}%>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
