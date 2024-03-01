@@ -69,9 +69,9 @@ public class UtentiController
 	@GetMapping("logout")
 	public String logout(HttpServletRequest request,
 	                     HttpServletResponse response) {
-	    System.out.println("Sei nel logout");
 	    HttpSession	session = request.getSession(false);
 	    try {
+	    	System.out.println(session.getAttribute("utenteloggato"));
 	        if (session != null) {
 	            session.invalidate();
 	            deleteCookies(request, response);
