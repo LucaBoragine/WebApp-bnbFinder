@@ -354,6 +354,37 @@ Header Style
   transition: all .5s ease 0s;
 }
 
+nav .more-info i {
+    color: #ffff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 37px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+h4.name-user{
+	display: block;
+    font-weight: 400;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #fff;
+    margin-top: 11px;
+    margin-left: -28px;
+}
+
+a.buttonHeader{
+	padding: 0px !important; 	
+	background: 0 0;
+}
+
+.margin-left{
+	margin-left: 40px;
+}
+
 .header-area {
   background-color: #22b3c1;
   position: absolute;
@@ -371,7 +402,7 @@ Header Style
 .header-area .main-nav {
   background: transparent;
   display: flex;
-  padding: 0px 30px;
+  /* padding: 0px 30px; */
 }
 
 .background-header .main-nav {
@@ -2053,6 +2084,7 @@ Deals Page Style
   margin-top: 10px;
   border-top: 1px solid #ddd;
   margin-bottom: 30px;
+  text-wrap: nowrap;
 }
 
 .amazing-deals ul.page-numbers {

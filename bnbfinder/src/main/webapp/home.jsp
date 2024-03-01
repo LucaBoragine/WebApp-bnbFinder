@@ -20,10 +20,14 @@
     <title>Il Manuale del B&amp;B</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -60,14 +64,34 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="/">Home</a></li>
-                        <%if(request.getSession(false) != null){ %>
-                        	<li><a href="utenti/logout">Logout</a></li>
+                        <%if(request.getSession(false) != null){ %>                    	
+                        	<li><div class="more-info col-lg-3 col-sm-6 col-6">
+                        			<i class="fa fa-user"></i>                       		
+                      			</div> 
+                      		</li>
+                      		<% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>
+                      		<li><h4 class ="name-user">Ciao,<%= utente.get("nome") %></h4></li>
+                      		<li><a href="utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><a href="utenti/formlogin">Login</a></li>
-	                       <li><a href="utenti/formnuovoutente">Registrati</a></li>
+	                       <li><form class="form-inline pull-right margin-left" role="form" action="/utenti/login" method="get">
+								  <div class="form-group">
+								    <div class="input-group">
+								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
+								      <input class="form-control" type="text" name="username" placeholder="Username">
+								    </div>
+								  </div>
+								  <div class="form-group">
+								    <label class="sr-only" for="password">Password</label>
+								    <input type="password" class="form-control" id="password" name="password" placeholder="Password">								 
+								  </div>
+								  <button type="submit" class="btn btn-default">Accedi</button>
+								</form>																
+							</li>
+							<li><a class="buttonHeader" href= "utenti/formnuovoutente"><button  class="btn btn-default">Registrati</button></a></li>								                       
 						 <%}%>
-                    </ul>   
+                    </ul> 
+                     
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>

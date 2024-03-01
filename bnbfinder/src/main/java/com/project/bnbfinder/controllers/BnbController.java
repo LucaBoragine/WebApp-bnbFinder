@@ -1,6 +1,9 @@
 package com.project.bnbfinder.controllers;
 
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +21,12 @@ public class BnbController {
 	private DAOStrutture ds;
 
 	@GetMapping("infobnb")
-	public String elencobnb(@RequestParam("id") int idBnb, Model model)
+	public String elencobnb(@RequestParam("id") int idBnb, Model model, HttpServletRequest request)
 	{
 		model.addAttribute( "mappabnb" ,ds.cercaId(idBnb));
 		model.addAttribute("optionals", ds.optionalsPerStruttura(idBnb));
 		model.addAttribute( "altribnb" ,ds.cercaPerCitta(ds.cercaId(idBnb).get("citta")));
+		HomeController.setModelUtente(model,request);
 		
 		return "infobnb.jsp";
 	}

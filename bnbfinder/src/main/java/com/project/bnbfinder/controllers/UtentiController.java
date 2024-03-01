@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,13 +27,13 @@ public class UtentiController
 	}
 	
 	@GetMapping("registrati")
-	public String registrati( @RequestParam Map<String,String> nuovoUtente)
+	public String registrati( @RequestParam Map<String,String> nuovoUtente, HttpServletRequest request)
 	{
 		if(du.create(nuovoUtente))
 			System.out.println("Utente creato con successo");
 		else
 			System.out.println("Impossibile creare l'utente");
-		return "redirect:/";
+		return "redirect:"+request.getHeader("Referer");
 	}
 	
 	@GetMapping("formlogin")
@@ -44,7 +45,7 @@ public class UtentiController
 	@GetMapping("login")
 	public String login(	@RequestParam("username") String u,
 							@RequestParam("password") String p,
-							HttpServletRequest request)
+							HttpServletRequest request, Model model)
 	{
 		Map<String,String> utente = du.trovaUtente(u, p);
 		System.out.println("Utente: " + utente);
@@ -52,12 +53,8 @@ public class UtentiController
 		{	
 			HttpSession session = request.getSession(true);
 			session.setAttribute("utenteloggato",utente);
-			return "redirect:/";
 		}
-		else {
-			System.out.println("Username o password inserite non valide.");
-			return "/utenti/formlogin.html";
-		}
+		return "redirect:"+request.getHeader("Referer");
 	}
 
 	private void deleteCookies(	HttpServletRequest request,
@@ -80,13 +77,12 @@ public class UtentiController
 	            session.invalidate();
 	            deleteCookies(request, response);
 	            System.out.println("Sessione invalidata con successo");
-	        } else {
-	            System.out.println("Sessione non trovata");
 	        }
+	        
 	    } catch (IllegalStateException e) {
 	        e.printStackTrace();
 	        System.out.println("Impossibile chiudere la sessione");
 	    }
-	    return "redirect:/";
+	    return "redirect:"+request.getHeader("Referer");
 	}
 }
