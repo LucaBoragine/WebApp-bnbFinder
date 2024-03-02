@@ -188,7 +188,7 @@
               	</div>
                 <div class="col-lg-2">                        
                   <fieldset>
-                      <button type="button" onClick="resetForm()" class="border-button" >Reset</button>
+                      <a href="/"><button type="button" onClick="resetForm()" class="border-button" >Reset</button></a>
                   </fieldset>
               </div>           
             </div>           
@@ -202,6 +202,13 @@
   <div class="amazing-deals">
     <div class="container">
       <div class="row">
+      	<%if(elencobnb.size()==0){ %>
+      	<div class="col-lg-6 offset-lg-3">
+          <div class="section-heading text-center">
+            <h3>La ricerca non ha dato alcun risultato</h3>         
+          </div>
+        </div>
+      	<% }%>
         <%for(Map<String,String> bnb : elencobnb){ %>
         <%String[] imgs = bnb.get("link_img").split(","); %>
 	        <div class="col-lg-6 col-sm-6">

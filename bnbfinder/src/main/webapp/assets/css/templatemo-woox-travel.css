@@ -2256,6 +2256,10 @@ Reservation Page Style
 	color: #f7f7f7;
 }
 
+.amazing-deals .section-heading h3{
+	color: #525252;
+}
+
 a.user{
 	padding:0px!important;
 }
