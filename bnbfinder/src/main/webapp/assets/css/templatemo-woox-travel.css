@@ -2239,6 +2239,15 @@ Reservation Page Style
   color: #22b3c1;
 }
 
+.reservation-form #reservation-form h5 em {
+  font-style: normal;
+  color: #22b3c1;
+}
+
+.reservation-form #reservation-form h5{
+  text-align: center;
+}
+
 .reservation-form #reservation-form {
   padding: 60px 120px;
   background-color: #f9f9f9;
