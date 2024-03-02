@@ -19,7 +19,6 @@ public class HomeController {
 	@Autowired
 	private DAOStrutture ds;
 	
-	
 	public static void setModelUtente(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 		if(session != null) {
@@ -32,6 +31,8 @@ public class HomeController {
 	public String home(Model model, HttpServletRequest request) {
 		model.addAttribute("elencobnb", ds.leggiTutti());
 		model.addAttribute("elencocitta", ds.elencocitta());
+		model.addAttribute("elencolocation", ds.elencolocation());
+		model.addAttribute("labelsOptionals", ds.labelsOptionals());
 		setModelUtente(model,request);
 		
 		return "home.jsp";		
@@ -41,15 +42,28 @@ public class HomeController {
 	public String filter(@RequestParam Map<String,String> map, Model model, HttpServletRequest request) {
 		setModelUtente(model,request);
 		model.addAttribute("elencocitta", ds.elencocitta());
+		model.addAttribute("elencolocation", ds.elencolocation());
 		model.addAttribute("elencobnb", ds.leggiTutti());
-		if(!map.get("prezzo_max").equalsIgnoreCase("Prezzo Massimo") && !map.get("citta").equalsIgnoreCase("Citta'") ) {
-			model.addAttribute("elencobnb", ds.cercaPerPrezzoECitta(Double.parseDouble(map.get("prezzo_max")), map.get("citta")));
-		}else {
-			if(!map.get("citta").equalsIgnoreCase("Citta'"))
-				model.addAttribute("elencobnb", ds.cercaPerCitta(map.get("citta")));
-			if(!map.get("prezzo_max").equalsIgnoreCase("Prezzo Massimo"))
-				model.addAttribute("elencobnb",ds.cercaPerPrezzo(Double.parseDouble(map.get("prezzo_max"))));
-		}		
+		model.addAttribute("labelsOptionals", ds.labelsOptionals());
+		
+		if(map.size()!=0) {
+			model.addAttribute("elencobnb", ds.filtroHome(map));
+		}
+		
+		/*
+		 * if(!map.containsValue("Prezzo Massimo") && !map.containsValue("Citta'") ) {
+		 * model.addAttribute("elencobnb",
+		 * ds.cercaPerPrezzoECitta(Double.parseDouble(map.get("prezzo_max")),
+		 * map.get("citta"))); }else { if(!map.containsValue("Citta'"))
+		 * model.addAttribute("elencobnb", ds.cercaPerCitta(map.get("citta")));
+		 * if(!map.containsValue("Prezzo Massimo"))
+		 * model.addAttribute("elencobnb",ds.cercaPerPrezzo(Double.parseDouble(map.get(
+		 * "prezzo_max")))); }
+		 * 
+		 * if(map.containsValue("1")) { Map<String,String> ris = (Map<String,String>)
+		 * model.getAttribute("elencobnb"); Map<String,String> optionalsFilter =
+		 * ds.optionalsPerStruttura(0); }
+		 */
 		return "home.jsp";
 	}
 }

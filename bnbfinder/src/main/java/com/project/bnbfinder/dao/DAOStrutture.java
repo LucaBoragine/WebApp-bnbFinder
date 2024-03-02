@@ -1,6 +1,8 @@
 package com.project.bnbfinder.dao;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import database.Database;
 
@@ -56,6 +58,23 @@ public class DAOStrutture {
         return db.row(query,id + "");
     }
     
+    
+    public List<Map<String,String>> filtroHome(Map<String,String> requestMap){
+    	String query ="select * from strutture s join optionals o on s.id=o.id_struttura where ";
+    	int i = 0;
+    	for(String s : requestMap.keySet()) {
+    		i++;
+    		if(!s.equalsIgnoreCase("prezzo_notte"))
+    			query += s + "=" + "'"+ requestMap.get(s)+ "'";
+    		else
+    			query += s + "<=" + "'"+ requestMap.get(s)+ "'";
+    		if(i < requestMap.size())
+    			query += " and ";
+    	}  
+    	System.out.println(query);
+    	return db.rows(query);
+    }
+    
     public Map<String, String> optionalsPerStruttura(int idStruttura)
     {
         String query = "SELECT * FROM optionals WHERE id_struttura = ?";
@@ -63,15 +82,32 @@ public class DAOStrutture {
         return db.row(query,idStruttura + "");
     }
     
+    public String[] labelsOptionals() {
+    	String query = "SELECT * FROM optionals where id = 1";
+    	Map<String,String> opt = db.row(query);
+    	Set<String> labelsSet = opt.keySet();
+    	String[] labels = labelsSet.toArray(String[]::new);   	
+    	return labels;
+    }
+    
     public boolean prenotaStruttura(Map<String,String> p) {
     	 String query = "insert into prenotazioni (inizio,fine,id_struttura,id_utente) values (?,?,?,?)";
          return db.update(query, p.get("inizio"), p.get("fine"), p.get("id_struttura"), p.get("id_utente"));
     }
     
+    
+    
 
     public List<Map<String, String>> elencocitta()
     {
         String query = "select s.citta from strutture s group by s.citta order by s.citta; ";
+
+        return db.rows(query);
+    }
+    
+    public List<Map<String, String>> elencolocation()
+    {
+        String query = "select s.location from strutture s group by s.location order by s.location; ";
 
         return db.rows(query);
     }

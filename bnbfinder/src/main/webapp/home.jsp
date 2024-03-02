@@ -5,8 +5,9 @@
 <%@ page import="java.util.Map" %>
 <%@ page session = "false" %>
 <%List<Map<String,String>> elencobnb = (List<Map<String,String>>) request.getAttribute("elencobnb"); %>
-<%List<Map<String,String>> elencocitta = (List<Map<String,String>>) request.getAttribute("elencocitta"); %> 
-
+<%List<Map<String,String>> elencocitta = (List<Map<String,String>>) request.getAttribute("elencocitta"); %>
+<%List<Map<String,String>> elencolocation = (List<Map<String,String>>) request.getAttribute("elencolocation"); %> 
+<%String[] labelsOptionals = (String[]) request.getAttribute("labelsOptionals");%>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -125,8 +126,8 @@
               </div>
               <div class="col-lg-4">
                   <fieldset>
-                      <select name="citta" class="form-select" aria-label="Default select example" id="chooseLocation">
-                          <option selected>Citta'</option>
+                      <select name="citta" class="form-select" aria-label="Default select example" id="chooseCity">
+                          <option value="" disabled selected hidden>Citta'</option>
                           <% for(Map<String,String> citta : elencocitta){%>
                           	<option value="<%= citta.get("citta") %>"><%= citta.get("citta") %></option>
                          <%} %>
@@ -135,26 +136,68 @@
               </div>
               <div class="col-lg-4">
                   <fieldset>
-                      <select name="prezzo_max" class="form-select" aria-label="Default select example" id="choosePrice" >
-                          <option selected>Prezzo Massimo</option>
+                      <select name="prezzo_notte" class="form-select" aria-label="Default select example" id="choosePrice" >
+                          <option value="" disabled selected hidden>Prezzo Massimo</option>
                           <option value="30">30€</option>
                           <option value="50">50€</option>
                           <option value="100">100€</option>
                           <option value="150">150€</option>
                       </select>
-                  </fieldset>
+                  </fieldset>                
               </div>
               <div class="col-lg-2">                        
                   <fieldset>
-                      <button type="submit" class="border-button" onClick = "saveFormData()">Cerca</button>
+                      <button type="submit" class="border-button" onClick="saveForm()">Cerca</button>
                   </fieldset>
               </div>
             </div>
+            
+            <div class="row" style="margin-top:15px">
+              <div class="col-lg-2">
+                
+              </div>
+              <div class="col-lg-4">
+                  <fieldset>
+                     <select name="location" class="form-select" aria-label="Default select example" id="chooseLocation">
+                       <option value="" disabled selected hidden>Posizione</option>
+                         <% for(Map<String,String> loc : elencolocation){%>
+                          	<option value="<%= loc.get("location") %>"><%= loc.get("location") %></option>
+                         <%} %>
+                     </select>          
+                  </fieldset>
+              	</div>          
+            </div>          
+            
+            <div class="row" style="margin-top:15px">
+              <div class="col-lg-2">
+                <h4>Filtra Optionals:</h4>
+              </div>
+              <div class="col-lg-8">
+                  <fieldset>
+                  <%int i=0; %>
+                  <%for(String k : labelsOptionals){%>
+        			<%if(!k.equalsIgnoreCase("id_struttura") && !k.equalsIgnoreCase("id")  ){ %> 
+        			<%i++; %>                
+                     <div class="form-check form-check-inline">
+  						<input class="form-check-input" name="<%=k%>" type="checkbox" id="inlineCheckbox<%=i%>" value="1">
+						<label class="form-check-label" for="inlineCheckbox1"><%= k.replace('_', ' ') %></label>
+					</div> 
+					<%}%>  
+				<%}%>              
+                  </fieldset>
+              	</div>
+                <div class="col-lg-2">                        
+                  <fieldset>
+                      <button type="button" onClick="resetForm()" class="border-button" >Reset</button>
+                  </fieldset>
+              </div>           
+            </div>           
           </form>
         </div>
       </div>
     </div>
   </div>
+  
 
   <div class="amazing-deals">
     <div class="container">
