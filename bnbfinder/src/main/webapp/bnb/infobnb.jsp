@@ -77,19 +77,19 @@ https://templatemo.com/tm-580-woox-travel
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                                        <ul class="nav">
+                     <ul class="nav">
                         <li><a href="/">Home</a></li>
-                        <%if(request.getSession(false) != null){ %>                    	
+                        <%if(request.getSession(false) != null){ %>
+                        <% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>                    	
                         	<li><div class="more-info col-lg-3 col-sm-6 col-6">
-                        			<i class="fa fa-user"></i>                       		
+                        			<a class="user" href="/utenti/profilo?id=<%=utente.get("id")%>"><i class="fa fa-user"></i></a>                      		
                       			</div> 
-                      		</li>
-                      		<% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>
+                      		</li>                    		
                       		<li><h4 class ="name-user">Ciao,<%= utente.get("nome") %></h4></li>
-                      		<li><a href="../utenti/logout">Logout</a></li>
+                      		<li><a href="/utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><form class="form-inline pull-right" role="form" action="../utenti/login" method="post">
+	                       <li><form class="form-inline pull-right" role="form" action="/utenti/login" method="post">
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
@@ -103,9 +103,9 @@ https://templatemo.com/tm-580-woox-travel
 								  <button type="submit" class="btn btn-default">Accedi</button>
 								</form>																
 							</li>
-							<li><a class="buttonHeader" href= "../utenti/formnuovoutente" target="_blank"><button  class="btn btn-default">Registrati</button></a></li>								                       
+							<li><a class="buttonHeader" href= "/utenti/formnuovoutente" target="_blank"><button  class="btn btn-default">Registrati</button></a></li>								                       
 						 <%}%>
-                    </ul> 
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>

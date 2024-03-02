@@ -2248,6 +2248,18 @@ Reservation Page Style
   text-align: center;
 }
 
+.visit-country .image img{
+	height: 340px;
+}
+
+.visit-country .right-content h4{
+	color: #f7f7f7;
+}
+
+a.user{
+	padding:0px!important;
+}
+
 .reservation-form #reservation-form {
   padding: 60px 120px;
   background-color: #f9f9f9;

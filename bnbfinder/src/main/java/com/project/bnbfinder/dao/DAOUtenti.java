@@ -1,4 +1,5 @@
 package com.project.bnbfinder.dao;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,17 @@ public class DAOUtenti
 								m.get("data_nascita"),
 								m.get("email"));
 	}
+	
+    public List<Map<String,String>> prenotPerUtente(int id){
+    	String query = "select p.id, p.inizio, p.fine, p.id_struttura,s.nome,s.citta,s.indirizzo,s.location,s.link_Img,s.descrizione,s.prezzo_notte  \r\n"
+    			+ "from utenti u join prenotazioni p ON u.id = p.id_utente \r\n"
+    			+ "	join strutture s on p.id_struttura = s.id \r\n"
+    			+ "where u.id = ?;";
+    	return db.rows(query, id + "");
+    }
+    
+    public boolean eliminaPrenot(int idPrenot) {
+    	String query = "delete from prenotazioni where id=?";
+    	return db.update(query, idPrenot+"");   			
+    }
 }

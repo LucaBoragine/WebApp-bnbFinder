@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.bnbfinder.dao.DAOStrutture;
 import com.project.bnbfinder.dao.DAOUtenti;
 
 @Controller
@@ -20,6 +21,25 @@ public class UtentiController
 {	
 	@Autowired
 	private DAOUtenti du;
+	
+	
+	@GetMapping("profilo")
+	public String profilo(@RequestParam("id") int idUtente, Model model, HttpServletRequest request) {
+		HomeController.setModelUtente(model,request);
+		model.addAttribute("elencopronotbnb",du.prenotPerUtente(idUtente));		
+		return "profilo.jsp";
+	}
+	
+	@GetMapping("eliminaprenot")
+	public String profilo(@RequestParam("id") int idPrenot, HttpServletRequest request) {
+		if(du.eliminaPrenot(idPrenot)) {
+			System.out.println("Prenotazione eliminata con successo.");			
+		}
+		else {
+			System.out.println("Impossibile eliminare prenotazione");			
+		}
+		return "redirect:"+request.getHeader("Referer"); 
+	}
 	
 	@GetMapping("formnuovoutente")
 	public String formNuovoUtente()
