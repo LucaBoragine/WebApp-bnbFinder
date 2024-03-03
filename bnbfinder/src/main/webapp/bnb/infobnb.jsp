@@ -327,12 +327,15 @@ https://templatemo.com/tm-580-woox-travel
   <script src="../assets/js/tabs.js"></script>
   <script src="../assets/js/popup.js"></script>
   <script src="../assets/js/custom.js"></script>
+  <script src="../assets/js/dateControll.js"></script>
 	
   <script>
     $(".option").click(function(){
       $(".option").removeClass("active");
       $(this).addClass("active"); 
     });
+
+    
   </script>
 
   </body>
