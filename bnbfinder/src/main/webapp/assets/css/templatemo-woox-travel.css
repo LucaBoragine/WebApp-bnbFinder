@@ -1981,6 +1981,7 @@ Deals Page Style
   border-bottom-left-radius: 23px;
   border-bottom-right-radius: 23px;
   padding: 35px 60px;
+  text-transform: capitalize;
 }
 
 .search-form #search-form h4 {
@@ -2002,10 +2003,12 @@ Deals Page Style
   font-weight: 300;
   width: 100%;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .search-form #search-form option {
   background-color: #1ea0ad;
+  text-transform: capitalize;
 }
 
 .search-form #search-form button {
