@@ -149,7 +149,8 @@ https://templatemo.com/tm-580-woox-travel
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="left-image">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155418.43546665814!2d12.35369372883973!3d41.902783834437124!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x13257f1b11618069%3A0x11a1e191567e6b1d!2sItaly!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="550px" frameborder="0" style="border:0; border-radius: 23px;" allowfullscreen=""></iframe>
+            <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d155418.43546665814!2d12.35369372883973!3d41.902783834437124!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x13257f1b11618069%3A0x11a1e191567e6b1d!2sItaly!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="550px" frameborder="0" style="border:0; border-radius: 23px;" allowfullscreen=""></iframe>-->
+          	<iframe src="https://www.google.com/maps?q= <%= bnb.get("indirizzo")%>, <%= bnb.get("citta")%>&output=embed" width="100%" height="550px" frameborder="0" style="border:0; border-radius: 23px;" allowfullscreen=""></iframe>
           </div>
         </div>
         <div class="col-lg-6">
