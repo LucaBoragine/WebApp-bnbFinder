@@ -44,8 +44,8 @@ public class DAOUtenti
     	return db.rows(query, id + "");
     }
     
-    public boolean eliminaPrenot(int idPrenot) {
-    	String query = "delete from prenotazioni where id=?";
-    	return db.update(query, idPrenot+"");   			
+    public boolean eliminaPrenot(int idPrenot, int idUtente) {
+    	String query = "delete from prenotazioni where id=? and id_utente = ?";
+    	return db.update(query, idPrenot+"", idUtente+"");   			
     }
 }

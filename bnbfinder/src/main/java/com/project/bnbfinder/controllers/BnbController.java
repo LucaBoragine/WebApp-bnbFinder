@@ -43,6 +43,8 @@ public class BnbController {
 	public String prenotazioni(@RequestParam Map<String,String> prenotazione, Model model, HttpServletRequest request)
 	{	
 		HttpSession session = request.getSession(false);
+		Map<String,String> utente = (Map<String,String>) session.getAttribute("utenteloggato");
+		prenotazione.put("id_utente", utente.get("id"));
 		if(ds.prenotaStruttura(prenotazione)) {
 			System.out.println("Prenotazione effettuata con successo");
 			session.setAttribute("messagep", "Prenotazione effettuata con successo!");

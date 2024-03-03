@@ -82,7 +82,7 @@ https://templatemo.com/tm-580-woox-travel
                         <%if(request.getSession(false) != null){ %>
                         <% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>                    	
                         	<li><div class="more-info col-lg-3 col-sm-6 col-6">
-                        			<a class="user" href="/utenti/profilo?id=<%=utente.get("id")%>"><i class="fa fa-user"></i></a>                      		
+                        			<a class="user" href="/utenti/profilo"><i class="fa fa-user"></i></a>                      		
                       			</div> 
                       		</li>                    		
                       		<li><h4 class ="name-user">Ciao,<%= utente.get("nome") %></h4></li>
@@ -221,10 +221,6 @@ https://templatemo.com/tm-580-woox-travel
    <div class="col-lg-12">
      <form id="reservation-form"  method="get" role="search" action="prenotazione">
      	<input type="hidden" name="id_struttura" value="<%= bnb.get("id") %>">
-     	<%if(request.getSession(false) != null){ %>
-     		<% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato");%>      
-     		<input type="hidden" name="id_utente" value="<%= utente.get("id") %>">
-     	<%}%>
        <div class="row">
          <div class="col-lg-12">
            <h4>Richiedi prenotazione per il B&amp;B <em><%= bnb.get("nome") %></em></h4>

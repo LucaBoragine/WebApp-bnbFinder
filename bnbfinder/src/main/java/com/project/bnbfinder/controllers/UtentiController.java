@@ -24,15 +24,19 @@ public class UtentiController
 	
 	
 	@GetMapping("profilo")
-	public String profilo(@RequestParam("id") int idUtente, Model model, HttpServletRequest request) {
+	public String profilo(Model model, HttpServletRequest request) {
 		HomeController.setModelUtente(model,request);
-		model.addAttribute("elencopronotbnb",du.prenotPerUtente(idUtente));		
+		Map<String,String> utente = (Map<String,String>)model.getAttribute("utenteloggato");
+		model.addAttribute("elencopronotbnb",du.prenotPerUtente(Integer.parseInt(utente.get("id"))));		
 		return "profilo.jsp";
 	}
 	
 	@GetMapping("eliminaprenot")
 	public String profilo(@RequestParam("id") int idPrenot, HttpServletRequest request) {
-		if(du.eliminaPrenot(idPrenot)) {
+		HttpSession session = request.getSession(false);
+		Map<String,String> utente = (Map<String,String>) session.getAttribute("utenteloggato");
+		int idUtente = Integer.parseInt(utente.get("id"));
+		if(du.eliminaPrenot(idPrenot, idUtente)) {
 			System.out.println("Prenotazione eliminata con successo.");			
 		}
 		else {

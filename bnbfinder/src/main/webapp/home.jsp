@@ -68,7 +68,7 @@
                         <%if(request.getSession(false) != null){ %>
                         <% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>                    	
                         	<li><div class="more-info col-lg-3 col-sm-6 col-6">
-                        			<a class="user" href="/utenti/profilo?id=<%=utente.get("id")%>"><i class="fa fa-user"></i></a>                      		
+                        			<a class="user" href="/utenti/profilo"><i class="fa fa-user"></i></a>                      		
                       			</div> 
                       		</li>                    		
                       		<li><h4 class ="name-user">Ciao,<%= utente.get("nome") %></h4></li>
