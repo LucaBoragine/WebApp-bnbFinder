@@ -180,6 +180,9 @@ body {
 
 }
 
+.logbtn{
+	border-radius: 15px;
+}
 
 .main-button a {
   font-size: 14px;

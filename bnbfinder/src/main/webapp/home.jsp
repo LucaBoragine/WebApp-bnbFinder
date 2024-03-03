@@ -86,10 +86,10 @@
 								    <label class="sr-only" for="password">Password</label>
 								    <input type="password" class="form-control" id="password" name="password" placeholder="Password">								 
 								  </div>
-								  <button type="submit" class="btn btn-default">Accedi</button>
+								  <button type="submit" class="btn btn-default logbtn">Accedi</button>
 								</form>																
 							</li>
-							<li><a class="buttonHeader" href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default">Registrati</button></a></li>								                       
+							<li><a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a></li>								                       
 						 <%}%>
                     </ul> 
                      

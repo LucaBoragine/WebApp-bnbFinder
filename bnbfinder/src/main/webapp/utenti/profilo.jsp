@@ -150,7 +150,7 @@
                         <p><%= bnbp.get("descrizione")%></p>
                         <ul class="info">
                           <li><i class="fa fa-map-marker"></i><%= bnbp.get("indirizzo") %></li>
-                          <li><i class="fa fa-calendar-check-o"></i><%= bnbp.get("inizio") %></li>
+                          <li><i class="fa fa-calendar"></i><%= bnbp.get("inizio") %></li>
                           <li><i class="fa fa-flag-checkered"></i> <%= bnbp.get("fine") %></li>                   
                         </ul>
                         <div class="text-button">
@@ -191,7 +191,6 @@
 
   <script src="../assets/js/isotope.min.js"></script>
   <script src="../assets/js/owl-carousel.js"></script>
-  <script src="../assets/js/wow.js"></script>
   <script src="../assets/js/tabs.js"></script>
   <script src="../assets/js/popup.js"></script>
   <script src="../assets/js/custom.js"></script>
