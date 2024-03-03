@@ -71,7 +71,7 @@
                         			<a class="user" href="/utenti/profilo"><i class="fa fa-user"></i></a>                      		
                       			</div> 
                       		</li>                    		
-                      		<li><h4 class ="name-user">Ciao,<%= utente.get("nome") %></h4></li>
+                      		<li><h4 class ="name-user">Ciao, <%= utente.get("nome") %></h4></li>
                       		<li><a href="utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
