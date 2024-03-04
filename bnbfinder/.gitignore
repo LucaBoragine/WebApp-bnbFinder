@@ -1,1 +1,4 @@
 /target/
+bnbfinder/src/main/resources/static/utility.jar
+*.propreties
+
