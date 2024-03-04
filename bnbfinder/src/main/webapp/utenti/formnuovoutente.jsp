@@ -69,7 +69,7 @@
 			        </div>
 			        <div class="form-group">
 			          <div class="col-md-12">
-			            <input type="submit" value="Create account" class="btn btn-info">
+			            <input type="submit" value="Crea account" class="btn btn-info">
 			            <a href="/" class="pull-right">Torna alla Home</a>
 			          </div>
 			        </div>	
