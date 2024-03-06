@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="../assets/css/fontawesome.css">
 	<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-	<link href="../assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<link href="../assets/css/second_style.css" rel="stylesheet" type="text/css">	
 </head>
 <body class="templatemo-bg-gray">
 <%if (message != null && !message.isEmpty()) {%>

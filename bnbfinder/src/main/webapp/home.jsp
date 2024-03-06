@@ -20,16 +20,16 @@
 
     <title>Il Manuale del B&amp;B</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS  -->
    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
-
+     <!-- Additional CSS Files -->
+    
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<link href="assets/css/second_style.css" rel="stylesheet" type="text/css">	
 	<link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="assets/css/first_style.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -87,7 +87,7 @@
 								    <input type="password" class="form-control" id="password" name="password" placeholder="Password">								 
 								  </div>
 								  <button type="submit" class="btn btn-default logbtn">Accedi</button>
-								</form>																
+								</form>															
 							</li>
 							<li><a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a></li>								                       
 						 <%}%>
@@ -287,8 +287,8 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>    	
 
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>

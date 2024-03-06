@@ -30,19 +30,13 @@
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">  
 	
-	<link href="../assets/css/templatemo_style.css" rel="stylesheet" type="text/css">	
+	<link href="../assets/css/second_style.css" rel="stylesheet" type="text/css">	
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/templatemo-woox-travel.css">
+    <link rel="stylesheet" href="../assets/css/first_style.css">
     <link rel="stylesheet" href="../assets/css/owl.css">
     <link rel="stylesheet" href="../assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
 
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
--->
   </head>
 
 <body>
