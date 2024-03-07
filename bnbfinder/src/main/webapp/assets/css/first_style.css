@@ -421,6 +421,7 @@ a.buttonHeader{
   transition: all 0.3s ease 0s;
   position: relative;
   z-index: 999;
+  align-items: center;
 }
 
 .header-area .main-nav .nav li {
@@ -439,7 +440,7 @@ a.buttonHeader{
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   border: transparent;
-  padding: 8px 15px;
+  /* padding: 8px 15px; */
   position: relative;
   border-radius: 18px;
   letter-spacing: 0.5px;
@@ -598,6 +599,12 @@ a.buttonHeader{
   color: #fff;
 }
 
+li.user{
+	display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
     padding-left: 10px;
@@ -609,6 +616,12 @@ a.buttonHeader{
 }
 
 @media (max-width: 1199px) {
+	
+	nav .more-info i{
+		color: #1e1e1e !important;
+		border: none;
+	}
+	
   .header-area {
     top: 0;
   }
@@ -2326,9 +2339,6 @@ Reservation Page Style
 	color: #525252;
 }
 
-a.user{
-	padding:0px!important;
-}
 
 .reservation-form #reservation-form {
   padding: 60px 120px;

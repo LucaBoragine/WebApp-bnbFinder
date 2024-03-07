@@ -71,16 +71,17 @@
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                     <ul class="nav">
+                    <ul class="nav">
                         <li><a href="/">Home</a></li>
                         <%if(request.getSession(false) != null){ %>
                         <% Map<String,String> utente = (Map<String,String>) request.getAttribute("utenteloggato"); %>                    	
-                        	<li><div class="more-info col-lg-3 col-sm-6 col-6">
-                        			<a class="user" href="/utenti/profilo"><i class="fa fa-user"></i></a>                      		
-                      			</div> 
+                        	<li class="user" >
+                        		<div class="more-info">
+                        			<a href="/utenti/profilo"><i class="fa fa-user"></i></a>                      		
+                      			</div>
+                      			<a href="/utenti/profilo" class ="name-user">Il Mio Profilo</a> 
                       		</li>                    		
-                      		<li><h4 class ="name-user">Ciao, <%= utente.get("nome") %></h4></li>
-                      		<li><a href="/utenti/logout">Logout</a></li>
+                      		<li><a href="utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
 	                       <li><form class="form-inline" role="form" action="/utenti/login" method="post">
@@ -90,15 +91,15 @@
 								      <input class="form-control" type="text" name="username" placeholder="Username" required>
 								    </div>
 								  </div>
-								  <div class="form-group">
+								  <div class="form-group">								 
 								    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>								 
 								  </div>
 								  <button type="submit" class="btn btn-default logbtn">Accedi</button>
-								  <a class="buttonHeader" href= "/utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a>
-								</form>																
-							</li>								                       
+								  <a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a>
+								</form>															
+							</li>							                       
 						 <%}%>
-                    </ul>
+                    </ul> 
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
