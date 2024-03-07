@@ -136,7 +136,7 @@
                 <div class="item">
                   <div class="row">
                     <div class="col-lg-4 col-sm-5">
-                      <div class="image">
+                      <div id="imgBnb" class="image">
                         <img src="<%=imgs[1]%>" alt="">
                       </div>
                     </div>

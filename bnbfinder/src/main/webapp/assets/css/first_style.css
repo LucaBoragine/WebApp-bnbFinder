@@ -1,10 +1,4 @@
-/*
 
-TemplateMo 580 Woox Travel
-
-https://templatemo.com/tm-580-woox-travel
-
-*/
 /* ---------------------------------------------
 Table of contents
 ------------------------------------------------
@@ -25,11 +19,7 @@ font & reset css
 --------------------------------------------- 
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
-/* 
----------------------------------------------
-reset
---------------------------------------------- 
-*/
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -170,15 +160,6 @@ body {
   color: #fff;
 }
 
-
-#imgBnb img{
-	height: 290px;
-}
-
-.owl-carousel .owl-item img {
- height: 270px;
-
-}
 
 .logbtn{
 	border-radius: 15px;
@@ -379,6 +360,7 @@ h4.name-user{
 a.buttonHeader{
 	padding: 0px !important; 	
 	background: 0 0;
+	display: inline !important;
 }
 
 .margin-left{
@@ -626,7 +608,7 @@ a.buttonHeader{
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1199px) {
   .header-area {
     top: 0;
   }
@@ -682,23 +664,38 @@ a.buttonHeader{
     overflow: hidden;
   }
   .header-area .main-nav .nav {
+    
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;   
+  }
+  
+   .header-area.header-sticky .nav.active {
+    display:block;
     float: none;
     width: 100%;
-    display: none;
-    -webkit-transition: all 0s ease 0s;
-    -moz-transition: all 0s ease 0s;
-    -o-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
+    height: auto;
+    padding: 5px;
     margin-left: 0px;
+    -webkit-transition: height .3s linear, padding-top .3s linear, padding-bottom .3s linear, border-top-width .3s linear, border-top-width .3s linear, margin-top .3s linear;
+    transition: height .3s linear, padding-top .3s linear, padding-bottom .3s linear, border-top-width .3s linear, border-top-width .3s linear, margin-top .3s linear;  
   }
   .header-area.header-sticky .nav {
     margin-top: 85px !important;
   }
+  
+
   .background-header.header-sticky .nav {
-    margin-top: 70px !important;
+    margin-top: 65px !important;
   }
-  .header-area .main-nav .nav li:first-child {
-    border-top: 1px solid #eee;
+/*   .header-area .main-nav .nav li:first-child {
+    border-top-left-radius: 23px;
+    border-top-right-radius: 23px;
+  } */
+    .header-area .main-nav .nav li:last-child {
+    border-bottom-left-radius: 23px;
+    border-bottom-right-radius: 23px;
   }
   .header-area .main-nav .nav li {
     width: 100%;
@@ -1055,8 +1052,19 @@ Visit Country Style
   border-bottom: none;
 }
 
+.visit-country .item .image {
+    border-top-left-radius: 23px;
+    border-bottom-left-radius: 23px;
+    overflow: hidden;
+    aspect-ratio: 9 / 12;
+}
+
 .visit-country .item .image img {
   border-radius: 23px;
+}
+
+.visit-country .right-content h4{
+	color: #f7f7f7;
 }
 
 .visit-country .item .right-content h4 {
@@ -1155,6 +1163,12 @@ Visit Country Style
   border: none;
 }
 
+
+@media (max-width: 575px) {
+  .visit-country .item .image {
+    aspect-ratio: 9 / 9;
+}
+}
 
 
 /* 
@@ -1338,9 +1352,25 @@ About Page Style
 }
 
 .cities-town .slider-content .item .thumb {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
+ 	position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cities-town .slider-content .item .thumb {
+ 	position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 9 / 12;
+}
+
+
+
+.cities-town .slider-content .item .thumb img {
+ 	display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cities-town .slider-content .item .thumb h4 {
@@ -1350,6 +1380,9 @@ About Page Style
   font-size: 20px;
   color: #fff;
 }
+
+
+
 
 .cities-town .owl-nav {
   position: absolute;
@@ -1407,6 +1440,18 @@ About Page Style
 .weekly-offers .item .thumb img {
   padding-right: 160px;
   border-radius: 23px;
+}
+
+.weekly-offers .item .thumb img {
+ 	display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.weekly-offers .item .thumb {
+    overflow: hidden;
+    aspect-ratio: 9 / 9;
 }
 
 .weekly-offers .item .thumb .text {
@@ -2042,6 +2087,13 @@ Deals Page Style
   border-top-left-radius: 23px;
   border-bottom-left-radius: 23px;
   overflow: hidden;
+  aspect-ratio: 9 / 14;
+}
+
+#imgBnb img{
+	height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .amazing-deals .item {
@@ -2065,7 +2117,6 @@ Deals Page Style
   padding-bottom: 25px;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
-  text-wrap: nowrap;
 }
 
 .amazing-deals .item i {
@@ -2088,7 +2139,6 @@ Deals Page Style
   margin-top: 10px;
   border-top: 1px solid #ddd;
   margin-bottom: 20px;
-  text-wrap: nowrap;
 }
 
 .amazing-deals ul.page-numbers {
@@ -2125,6 +2175,26 @@ Deals Page Style
 .amazing-deals ul.page-numbers li:last-child a {
   border: none;
 }
+
+
+@media (max-width: 1199px) {
+
+.amazing-deals .item .image {
+ 
+  aspect-ratio: 9 / 16;
+}
+	
+}
+
+@media (max-width: 991px) {
+
+.amazing-deals .item .image {
+ 
+  aspect-ratio: 9 / 9;
+}
+	
+}
+
 
 
 /* 
@@ -2251,13 +2321,6 @@ Reservation Page Style
   text-align: center;
 }
 
-.visit-country .image img{
-	height: 340px;
-}
-
-.visit-country .right-content h4{
-	color: #f7f7f7;
-}
 
 .amazing-deals .section-heading h3{
 	color: #525252;
@@ -2448,6 +2511,7 @@ body {
   }
   .reservation-form #reservation-form {
     padding: 45px 30px;
+    margin-top: 100px;
   }
 }
 

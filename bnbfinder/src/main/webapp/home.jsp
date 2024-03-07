@@ -75,21 +75,20 @@
                       		<li><a href="utenti/logout">Logout</a></li>
                         <%}%>
                          <%if(request.getSession(false) == null){ %>
-	                       <li><form class="form-inline pull-right" role="form" action="/utenti/login" method="post">
+	                       <li><form class="form-inline" role="form" action="/utenti/login" method="post">
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
-								      <input class="form-control" type="text" name="username" placeholder="Username">
+								      <input class="form-control" type="text" name="username" placeholder="Username" required>
 								    </div>
 								  </div>
-								  <div class="form-group">
-								    <label class="sr-only" for="password">Password</label>
-								    <input type="password" class="form-control" id="password" name="password" placeholder="Password">								 
+								  <div class="form-group">								 
+								    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>								 
 								  </div>
 								  <button type="submit" class="btn btn-default logbtn">Accedi</button>
+								  <a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a>
 								</form>															
-							</li>
-							<li><a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a></li>								                       
+							</li>							                       
 						 <%}%>
                     </ul> 
                      
