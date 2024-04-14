@@ -80,16 +80,16 @@
 								  <div class="form-group">
 								    <div class="input-group">
 								      <div class="input-group-addon"><i class="fa fa-address-book"></i></div>
-								      <input class="form-control" type="text" name="username" placeholder="Username" required>
+								      <input class="form-control" type="text" name="username" placeholder="Username">
 								    </div>
 								  </div>
 								  <div class="form-group">								 
-								    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>								 
+								    <input type="password" class="form-control" id="password" name="password" placeholder="Password">								 
 								  </div>
 								  <button type="submit" class="btn btn-default logbtn">Accedi</button>
-								  <a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank"><button  class="btn btn-default logbtn">Registrati</button></a>
 								</form>															
 							</li>							                       
+								  <li><a class="buttonHeader " href= "utenti/formnuovoutente" target="_blank" ><button  class="btn btn-default logbtn">Registrati</button></a></li>
 						 <%}%>
                     </ul> 
                      
